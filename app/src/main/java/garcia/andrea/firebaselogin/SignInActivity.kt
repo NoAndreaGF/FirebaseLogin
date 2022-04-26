@@ -36,6 +36,10 @@ class SignInActivity : AppCompatActivity() {
                 }
             }
         }
+        binding.signUpTextView.setOnClickListener{
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 
@@ -45,15 +49,13 @@ class SignInActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("TAG", "signInWithEmail:success")
-                    Toast.makeText(baseContext, "Ingreso con exito.",
-                        Toast.LENGTH_SHORT).show()
                     // val user = auth.currentUser
                     // updateUI(user)
                     readload()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("TAG", "signInWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Correo o contraseña incorrectos",
+                    Toast.makeText(baseContext, "Correo o contraseña incorrectos.",
                         Toast.LENGTH_SHORT).show()
                     // updateUI(null)
                 }
